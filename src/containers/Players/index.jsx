@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 class Players extends Component {
-  constructor(props) {
-    super(props);
-    this.setState({
-      players: [{ index: 1, name: 'Pat' }],
-    });
+  state = {
+    players: [{ index: 1, name: 'Pat' }],
   }
   render() {
     return (

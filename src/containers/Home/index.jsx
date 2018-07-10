@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.setState({});
-  }
+  state = {}
+
   render() {
-    return (<div>Home Works</div>);
+    return (
+      <section>
+        Home Works
+      </section>
+    );
   }
 }
 

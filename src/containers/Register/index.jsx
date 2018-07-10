@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.setState({});
-  }
+  state = {}
   render() {
     return (<div>Register Works</div>);
   }
