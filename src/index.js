@@ -8,6 +8,7 @@ import './assets/style.scss';
 import Home from './containers/Home';
 import Players from './containers/Players';
 import Register from './containers/Register';
+import SignIn from './containers/SignIn';
 import Roster from './containers/Roster';
 import NotFound from './containers/NotFound';
 
@@ -19,9 +20,6 @@ class App extends Component {
     signedIn: false,
   }
   actions = {
-    signIn: () => {
-      // history.push('/login');
-    },
     signOut: () => {
       localStorage.removeItem('token');
     },
@@ -29,14 +27,17 @@ class App extends Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Switch>
+        <div>
           <NavBar isSignedIn={this.state.signedIn} actions={this.actions} />
-          <Route path="/" exact component={Home} />
-          <Route path="/players" exact component={Players} />
-          <Route path="/register/" exact component={Register} />
-          <PrivateRoute path="/roster/" exact component={Roster} />
-          <Route path="/not-found" component={NotFound} />
-        </Switch>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/players" exact component={Players} />
+            <Route path="/register/" exact component={Register} />
+            <Route path="/signin" exact component={SignIn} />
+            <PrivateRoute path="/roster/" exact component={Roster} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </Router>
     );
   }

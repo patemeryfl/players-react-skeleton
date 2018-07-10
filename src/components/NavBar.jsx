@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavBar = ({ isSignedIn, signIn, signOut }) => (
+const NavBar = ({ isSignedIn, actions }) => (
   <nav>
     <div>
       <Link to="/" href="/">Home</Link>
@@ -11,8 +11,8 @@ const NavBar = ({ isSignedIn, signIn, signOut }) => (
     </div>
     <div>
       {!isSignedIn ?
-        <button onClick={signIn}>Sign In</button> :
-        <button onClick={signOut}>Sign Out</button>
+        <button><Link to="/signin" href="/signin">Sign In</Link></button> :
+        <button onClick={actions.signOut}>Sign Out</button>
         }
     </div>
   </nav>
@@ -22,7 +22,6 @@ export default NavBar;
 
 NavBar.propTypes = {
   isSignedIn: PropTypes.bool,
-  signIn: PropTypes.func,
-  signOut: PropTypes.func,
+  actions: PropTypes.objectOf(PropTypes.func),
 };
 
