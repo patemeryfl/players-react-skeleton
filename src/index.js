@@ -13,7 +13,7 @@ import Roster from './containers/Roster';
 import NotFound from './containers/NotFound';
 
 import NavBar from './components/NavBar';
-import PrivateRoute from './components/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute';
 
 class App extends Component {
   state = {
@@ -31,10 +31,10 @@ class App extends Component {
           <NavBar isSignedIn={this.state.signedIn} actions={this.actions} />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/players" exact component={Players} />
-            <Route path="/register/" exact component={Register} />
+            <Route path="/players/:new?" exact component={Players} />
+            <Route path="/register" exact component={Register} />
             <Route path="/signin" exact component={SignIn} />
-            <PrivateRoute path="/roster/" exact component={Roster} />
+            <Route path="/roster" exact component={Roster} />
             <Route component={NotFound} />
           </Switch>
         </div>
@@ -42,6 +42,8 @@ class App extends Component {
     );
   }
 }
+//             <PrivateRoute path="/roster/" exact component={Roster} />
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
