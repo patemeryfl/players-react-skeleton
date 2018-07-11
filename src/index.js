@@ -8,7 +8,7 @@ import './assets/style.scss';
 import Home from './containers/Home';
 import Players from './containers/Players';
 import Register from './containers/Register';
-import SignIn from './containers/SignIn';
+import LogIn from './containers/LogIn';
 import Roster from './containers/Roster';
 import NotFound from './containers/NotFound';
 
@@ -19,11 +19,6 @@ class App extends Component {
   state = {
     signedIn: false,
   }
-  actions = {
-    signOut: () => {
-      localStorage.removeItem('token');
-    },
-  }
   render() {
     return (
       <Router history={browserHistory}>
@@ -33,7 +28,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <Route path="/players/:new?" exact component={Players} />
             <Route path="/register" exact component={Register} />
-            <Route path="/signin" exact component={SignIn} />
+            <Route path="/login" exact component={LogIn} />
             <Route path="/roster" exact component={Roster} />
             <Route component={NotFound} />
           </Switch>
@@ -43,7 +38,6 @@ class App extends Component {
   }
 }
 //             <PrivateRoute path="/roster/" exact component={Roster} />
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -11,7 +11,7 @@ class Home extends Component {
         <header>
           <h1>Welcome to Office Game</h1>
           <p>Where all things happen</p>
-          <button><Link to="/register" href="/register">Get Started</Link></button>
+          <button><Link to="/register" href="/register">Register</Link></button>
         </header>
         <section>
           <ul>

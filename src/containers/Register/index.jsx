@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import newRegistration from './actions';
 import RegisterForm from '../../components/RegisterForm';
 
 class Register extends Component {
   static propTypes = {
-    registerUser: PropTypes.func,
+    history: PropTypes.object,
   }
   state = {
     error: '',
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    confirm_password: '',
   }
   actions = {
     validate: () => {
@@ -28,20 +31,31 @@ class Register extends Component {
       e.preventDefault();
       this.setState({
         error: '',
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirm_password: '',
       });
     },
     handleChange: prop => (event) => {
       this.setState({ [prop]: event.target.value });
     },
-    submitRegistration: (e) => {
+    submitRegistration: async (e) => {
       e.preventDefault();
       if (this.actions.validate) {
-        this.props.registerUser();
+        newRegistration.data = this.state;
+        delete newRegistration.data.error;
+        newRegistration.data.id = '5b2gdada410d257ff39012c0';
+        const { success, token } = await axios(newRegistration);
+        // Test
+        this.props.history.push('/roster');
+        if (success) {
+          localStorage.setItem('token', token);
+          this.props.history.push('/roster');
+        } else {
+          this.setState({ error: 'An error occured during registration. Please try again.' });
+        }
       }
     },
   }
@@ -55,4 +69,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);

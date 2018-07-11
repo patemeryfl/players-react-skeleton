@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavBar = ({ isSignedIn, actions }) => (
+const signOut = () => {
+  localStorage.removeItem('token');
+  this.props.history.push('/home');
+};
+
+const NavBar = ({ isSignedIn }) => (
   <nav>
     <div>
       <Link to="/" href="/">Home</Link>
@@ -11,17 +16,16 @@ const NavBar = ({ isSignedIn, actions }) => (
     </div>
     <div>
       {!isSignedIn ?
-        <button><Link to="/signin" href="/signin">Sign In</Link></button> :
-        <button onClick={actions.signOut}>Sign Out</button>
+        <button><Link to="/login" href="/login">Login</Link></button> :
+        <button onClick={signOut}>Sign Out</button>
         }
     </div>
   </nav>
 );
 
-export default NavBar;
+export default withRouter(NavBar);
 
 NavBar.propTypes = {
   isSignedIn: PropTypes.bool,
-  actions: PropTypes.objectOf(PropTypes.func),
 };
 

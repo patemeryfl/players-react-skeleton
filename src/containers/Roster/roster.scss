@@ -1,25 +1,26 @@
 @import '../../assets/colors';
 
 .roster {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 
-    .current_roster {
-      background-color: $primary;
-      width: 200px;        
-    }
+  .current_roster {
+    background-color: $primary;
+    width: 200px;
+  }
 
-    header {
-        z-index: -1;
-        text-align: center;
-        h1 {
-            display: block;
-            color: $primary;
-            text-align: center;
-            margin: 0;
-            font-size: 45px;
-            letter-spacing: 0.01em;
-        }
+  header {
+    z-index: -1;
+    text-align: center;
+
+    h1 {
+      display: block;
+      color: $primary;
+      text-align: center;
+      margin: 0;
+      font-size: 45px;
+      letter-spacing: 0.01em;
     }
+  }
 }
