@@ -1,17 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import decode from 'jwt-decode';
-
-const isAuthenticated = () => {
-  const token = localStorage.getItem('token');
-  try {
-    decode(token);
-  } catch (err) {
-    return false;
-  }
-  return true;
-};
+import isAuthenticated from '../assets/utilities/isAuthenticated';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -19,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     render={props =>
         (isAuthenticated() ?
           (<Component {...props} />) :
-          (<Redirect to={{ pathname: '/signin' }} />)
+          (<Redirect to={{ pathname: '/login' }} />)
         )}
   />
 );

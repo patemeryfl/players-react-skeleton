@@ -46,15 +46,12 @@ class Register extends Component {
       if (this.actions.validate) {
         newRegistration.data = this.state;
         delete newRegistration.data.error;
-        newRegistration.data.id = '5b2gdada410d257ff39012c0';
-        const { success, token } = await axios(newRegistration);
-        // Test
-        this.props.history.push('/roster');
-        if (success) {
-          localStorage.setItem('token', token);
+        const { data } = await axios(newRegistration);
+        if (data.success) {
+          localStorage.setItem('token', data.token);
           this.props.history.push('/roster');
         } else {
-          this.setState({ error: 'An error occured during registration. Please try again.' });
+          this.setState({ error: `${data.error.message}. Please try again.` });
         }
       }
     },

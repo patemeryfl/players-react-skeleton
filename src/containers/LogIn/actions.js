@@ -1,6 +1,8 @@
+import constants from '../../assets/constants';
+
 const login = {
-  method: 'xpost',
-  url: 'https://players-api.developer.alchemy.codes/api/login',
+  method: 'post',
+  url: `${constants.API_URL}/login`,
   data: '',
   headers: {
     'Content-Type': 'application/json',

@@ -1,6 +1,8 @@
+import constants from '../../assets/constants';
+
 const newRegistration = {
-  method: 'xpost',
-  url: 'https://players-api.developer.alchemy.codes/api/user',
+  method: 'post',
+  url: `${constants.API_URL}/user`,
   data: '',
   headers: {
     'Content-Type': 'application/json',

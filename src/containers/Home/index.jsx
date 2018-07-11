@@ -9,9 +9,9 @@ class Home extends Component {
     return (
       <div className="home">
         <header>
-          <h1>Welcome to Office Game</h1>
-          <p>Where all things happen</p>
-          <button><Link to="/register" href="/register">Register</Link></button>
+          <h1>Welcome to Office Quidditch</h1>
+          <p>Register now to get started!</p>
+          <Link to="/register" href="/register"><button>Register</button></Link>
         </header>
         <section>
           <ul>

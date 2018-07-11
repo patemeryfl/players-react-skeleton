@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DashBoard = ({ player }) => (
-  <div>
-    <header>
-      <h2>First{player.first_name} Last{player.last_name}</h2>
-    </header>
-    <section>
-      <h3>Stats</h3>
-      <p>Rating: {player.rating}</p>
-      <p>Handedness: { player.handedness }</p>
-    </section>
+const DashBoard = ({ player, deletePlayer }) => (
+  <div className="stats">
+    <h2>{player.first_name} {player.last_name}</h2>
+    <h3>Stats</h3>
+    <p>Rating: {player.rating}</p>
+    <p>Handedness: { player.handedness }</p>
+    <button onClick={() => deletePlayer(player.id)} className="delete">Delete Player</button>
   </div>
 );
 
@@ -22,5 +19,7 @@ DashBoard.propTypes = {
     last_name: PropTypes.string,
     rating: PropTypes.number,
     handedness: PropTypes.string,
+    id: PropTypes.string,
   }),
+  deletePlayer: PropTypes.func,
 };

@@ -34,12 +34,9 @@ class LogIn extends Component {
       if (this.actions.validate) {
         login.data = this.state;
         delete login.error;
-        login.data.id = '5b2gdada410d257ff39012c0';
-        const { success, token } = await axios(login);
-        // test
-        this.props.history.push('/roster');
-        if (success) {
-          localStorage.setItem('token', token);
+        const { data } = await axios(login);
+        if (data.success) {
+          localStorage.setItem('token', data.token);
           this.props.history.push('/roster');
         } else {
           this.setState({ error: 'An error occured during logging in. Please try again.' });
