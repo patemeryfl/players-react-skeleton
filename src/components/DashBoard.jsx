@@ -1,27 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DashBoard = ({ player, deletePlayer }) => (
-  <div className="stats">
+const DashBoard = ({ player }) => (
+  <div className="statsTitle" id="dashboard">
     <h2>{player.first_name} {player.last_name}</h2>
     <h3>Stats</h3>
-    <p>Rating: {player.rating}</p>
-    <p>Handedness: { player.handedness }</p>
-    <button onClick={() => deletePlayer(player.id)} className="delete">Delete Player</button>
+    <div className="statsBody">
+      <div>
+        <p>Rating: {player.rating}</p>
+        <p>Handedness: { player.handedness }</p>
+      </div>
+    </div>
   </div>
 );
 
 export default DashBoard;
 
 DashBoard.propTypes = {
-  player: PropTypes.objectOf({
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
-    rating: PropTypes.number,
-    handedness: PropTypes.string,
-    id: PropTypes.string,
-  }),
-  deletePlayer: PropTypes.func,
+  player: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
 };
 
 DashBoard.defaultProps = {

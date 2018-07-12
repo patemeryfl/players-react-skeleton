@@ -7,15 +7,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home">
+      <div id="home" className="home">
         <header>
           <h1>Welcome to Office Football</h1>
           <p>Register now to get started!</p>
-          <Link to="/register" href="/register"><button>Register</button></Link>
+          <Link to="/register" href="/register"><button id="register">Register</button></Link>
         </header>
         <section>
-          <div className="first" />
-          <div className="second">
+          <div id="first" className="first" />
+          <div id="second" className="second">
             <div>
               <h3>
                 The game you never thought you needed.
@@ -30,8 +30,8 @@ class Home extends Component {
             </div>
             <br /><br /><br /><br /><br /><br />
           </div>
-          <div className="second">
-            <div className="card">
+          <div id="second" className="second">
+            <div id="card" className="card">
               <h5>Gameplay</h5>
               <p>3 Game Modes</p>
               <ul>
@@ -40,11 +40,11 @@ class Home extends Component {
                 <li>Online Multiplayer</li>
               </ul>
             </div>
-            <div className="card">
+            <div id="card" className="card">
               <h5>Dashboard</h5>
               <p>Interactive dashboard shows current roster and player stats.</p>
             </div>
-            <div className="card">
+            <div id="card" className="card">
               <h5>Story Progression</h5>
               <p>Follow Along With Your Friends</p>
             </div>

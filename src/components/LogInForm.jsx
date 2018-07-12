@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import icons from '../assets/svgs';
 
 const LogInForm = ({ state, actions }) => (
-  <form>
+  <form id="login">
     <div className="input-group input-group-icon">
       <label htmlFor="email">Email
         <input type="email" value={state.email} placeholder="Email" id="email" onChange={actions.handleChange('email')} />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import icons from '../assets/svgs';
 
 const AddNewPlayerForm = ({ state, actions }) => (
-  <form>
+  <form id="addNewPlayer">
     <div className="input-group input-group-icon">
       <label htmlFor="firstName">First Name
         <input type="text" value={state.firstName} placeholder="First Name" id="firstName" onChange={actions.handleChange('first_name')} />

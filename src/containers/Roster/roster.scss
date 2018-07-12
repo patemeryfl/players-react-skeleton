@@ -10,6 +10,9 @@
   }
 
   button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: $black;
     color: $white;
     border: none;
@@ -19,6 +22,9 @@
     text-align: left;
     margin: 3px;
     cursor: pointer;
+    p {
+      margin: 4px 0 0 6px;
+    }
 
     svg {
       padding-top: 5px;
@@ -28,6 +34,16 @@
     &:hover {
       background-color: $darkGray;
       transition: 0.2s ease-in;
+    }
+  }
+
+  .rosterButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    svg {
+      fill: $danger;
     }
   }
 
@@ -53,23 +69,11 @@
 }
 
 .stats {
-  padding: 20px;
-  width: 50vh;
-
-  h2 {
-    display: block;
-    color: $primary;
-    text-align: center;
-    margin: 0;
-    font-size: 35px;
-    letter-spacing: 0.01em;
-  }
-
   h3 {
     display: block;
     color: $primary;
     text-align: center;
-    margin: 0;
+    margin: 20px;
     font-size: 25px;
     letter-spacing: 0.01em;
   }
@@ -81,5 +85,33 @@
     padding-left: 20px;
     font-size: 15px;
     letter-spacing: 0.01em;
+  }
+}
+
+.statsTitle {
+  padding: 20px;
+  width: 100%;
+  max-width: 150%;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    display: block;
+    color: $primary;
+    text-align: center;
+    margin: 0;
+    font-size: 35px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.statsBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    background-color: $danger;
+    margin-top: 20px;
   }
 }
