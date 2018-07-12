@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import icons from '../assets/svgs';
 
 const RegisterForm = ({ state, actions }) => (
-  <form id="register">
+  <form id="registerForm">
     <div className="input-group input-group-icon">
       <label htmlFor="firstName">First Name
         <input type="text" value={state.firstName} placeholder="First Name" id="firstName" onChange={actions.handleChange('first_name')} />
@@ -54,7 +54,7 @@ const RegisterForm = ({ state, actions }) => (
         </svg>
       </div>
     </div>
-    {state.error ? <div>{state.error}</div> : <div /> }
+    {state.error ? <div className="formError">{state.error}</div> : <div /> }
     <footer>
       <button id="clear" onClick={actions.clearForm}>Clear</button>
       <button id="register" onClick={actions.submitRegistration}>Register</button>

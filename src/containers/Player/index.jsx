@@ -32,26 +32,30 @@ class Player extends Component {
       this.setState({ [prop]: event.target.value });
     },
     validate: () => {
-      if (this.state.first_name !== '' ||
-          this.state.last_name !== '' ||
-          this.state.rating !== '' ||
-          this.state.handedness !== '') {
-        return true;
+      if (this.state.first_name === this.state.last_name) {
+        this.setState({ error: 'New players must have unique first & last names' });
+        return false;
       }
-      return false;
+      if (this.state.first_name === '' ||
+          this.state.last_name === '' ||
+          this.state.rating === '' ||
+          this.state.handedness === '') {
+        this.setState({ error: 'Please fill out all fields' });
+        return false;
+      }
+      return true;
     },
     addNewPlayer: async (e) => {
       e.preventDefault();
-      if (this.actions.validate) {
+      if (this.actions.validate()) {
         const userToken = localStorage.getItem('token');
         addNewPlayer.data = this.state;
         addNewPlayer.headers.Authorization = `Bearer ${userToken}`;
         delete addNewPlayer.data.error;
-        const { data } = await axios(addNewPlayer);
+        const { data } = await axios(addNewPlayer).catch(err =>
+          this.setState({ error: `${err.response.data.error.message}. Please try again` }));
         if (data.success) {
           this.props.history.push('/roster');
-        } else {
-          this.setState({ error: `${data.error.message}. Please try again.` });
         }
       }
     },

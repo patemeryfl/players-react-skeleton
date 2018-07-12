@@ -19,13 +19,23 @@ class Register extends Component {
   }
   actions = {
     validate: () => {
+      if (this.state.first_name === '' ||
+      this.state.last_name === '' ||
+      this.state.email === '' ||
+      this.state.password === '' ||
+      this.state.confirmPassword === '') {
+        this.setState({ error: 'Please fill out all fields.' });
+        return false;
+      }
       this.actions.checkPassword();
       return true;
     },
     checkPassword: () => {
       if (this.state.password !== this.state.confirmPassword) {
         this.setState({ error: 'Passwords do not match.' });
+        return false;
       }
+      return true;
     },
     clearForm: (e) => {
       e.preventDefault();
@@ -43,15 +53,14 @@ class Register extends Component {
     },
     submitRegistration: async (e) => {
       e.preventDefault();
-      if (this.actions.validate) {
+      if (this.actions.validate()) {
         newRegistration.data = this.state;
         delete newRegistration.data.error;
-        const { data } = await axios(newRegistration);
+        const { data } = await axios(newRegistration).catch(err =>
+          this.setState({ error: `${err.response.data.error.message} Please try again` }));
         if (data.success) {
           localStorage.setItem('token', data.token);
           this.props.history.push('/roster');
-        } else {
-          this.setState({ error: `${data.error.message}. Please try again.` });
         }
       }
     },

@@ -239,6 +239,16 @@ nav {
   align-items: flex-start;
 }
 
+.formError {
+  background-color: $error;
+  height: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 8px
+}
+
 /* Loader Style */
 
 $width: 50px;

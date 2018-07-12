@@ -14,7 +14,7 @@ const LoginActions = {
 describe('Login Component', () => {
   const LogInFormComponent = shallow(<LoginForm state={LoginState} actions={LoginActions} />);
   it('Renders successfully', () => {
-    expect(LogInFormComponent.find('#login').exists()).toBe(true);
+    expect(LogInFormComponent.find('#loginForm').exists()).toBe(true);
   });
 
   it('Renders the email input', () => {

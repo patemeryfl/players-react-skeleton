@@ -48,7 +48,7 @@ const AddNewPlayerForm = ({ state, actions }) => (
         </svg>
       </div>
     </div>
-    {!state.error === '' ? <div>{state.error}</div> : <div /> }
+    {state.error ? <div className="formError">{state.error}</div> : <div /> }
     <footer>
       <button id="clear" onClick={actions.clearForm}>Clear</button>
       <button id="create" onClick={actions.addNewPlayer}>Create</button>

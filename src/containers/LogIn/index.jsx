@@ -16,7 +16,7 @@ class LogIn extends Component {
   }
   actions = {
     validate: () => {
-      if (this.state.email || this.state.password === '') {
+      if (this.state.email === '' || this.state.password === '') {
         this.setState({ error: 'Email & Password are required' });
         return false;
       }
@@ -31,15 +31,14 @@ class LogIn extends Component {
     },
     logIn: async (e) => {
       e.preventDefault();
-      if (this.actions.validate) {
+      if (this.actions.validate()) {
         login.data = this.state;
         delete login.error;
-        const { data } = await axios(login);
+        const { data } = await axios(login).catch(err =>
+          this.setState({ error: `${err.response.data.error.message}. Please try again` }));
         if (data.success) {
           localStorage.setItem('token', data.token);
           this.props.history.push('/roster');
-        } else {
-          this.setState({ error: 'An error occured during logging in. Please try again.' });
         }
       }
     },
