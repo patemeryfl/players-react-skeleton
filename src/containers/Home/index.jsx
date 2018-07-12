@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import icons from '../../assets/svgs';
 import './home.scss';
 
 class Home extends Component {
@@ -9,7 +10,12 @@ class Home extends Component {
     return (
       <div id="home" className="home">
         <header>
-          <h1>Welcome to Office Football</h1>
+          <h1>
+            Welcome to Office Football&nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+              <path d={icons.football} />
+            </svg>
+          </h1>
           <p>Register now to get started!</p>
           <Link to="/register" href="/register"><button id="register">Register</button></Link>
         </header>

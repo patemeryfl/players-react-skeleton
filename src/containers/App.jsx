@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // Importing the fetch polyfill allows cypress to intercept fetch api requests.
 import 'whatwg-fetch';
 // Change me if you prefer sass,scss, less. (Note you may need to update the build config)
@@ -19,12 +20,19 @@ import '../containers/Home/home.scss';
 import '../containers/Roster/roster.scss';
 
 class App extends Component {
-  state = {
-    signedIn: false,
+  static propTypes = {
+    history: PropTypes.obj,
   }
 
-  componentWillMount() {
-    this.actions.checkAuth();
+  constructor(props) {
+    super(props);
+    this.props.history.listen(() => {
+      this.actions.checkAuth();
+    });
+  }
+
+  state = {
+    signedIn: false,
   }
 
   actions = {

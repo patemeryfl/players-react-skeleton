@@ -18,6 +18,10 @@
       margin: 0;
       font-size: 45px;
       letter-spacing: 0.01em;
+
+      svg {
+        fill: $primary;
+      }
     }
 
     p {

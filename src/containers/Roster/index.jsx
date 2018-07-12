@@ -9,6 +9,7 @@ import Loader from '../../components/Loader';
 class Roster extends Component {
   state = {
     error: '',
+    message: '',
     currentPlayer: '',
     players: [],
   }
