@@ -8,6 +8,7 @@ import Loader from '../../components/Loader';
 
 class Roster extends Component {
   state = {
+    error: '',
     currentPlayer: '',
     players: [],
   }
@@ -30,13 +31,14 @@ class Roster extends Component {
     },
     getPlayerInfo: (id) => {
       const currentPlayer = this.state.players.find(player => player.id === id);
-      this.setState({ currentPlayer });
+      this.setState({ currentPlayer, error: '' });
     },
     deletePlayer: async (id) => {
       const token = localStorage.getItem('token');
       deletePlayer.url = `${deletePlayer.url}/${id}`;
       deletePlayer.headers.Authorization = `Bearer ${token}`;
-      const { data } = await axios(deletePlayer);
+      const { data } = await axios(deletePlayer).catch(() =>
+        this.setState({ error: 'An error occured when trying to delete this player.' }));
       if (data.success) {
         const deletedPlayer = this.state.players.find(player => player.id === id);
         const deletedPlayerIndex = this.state.players.indexOf(deletedPlayer);
@@ -85,6 +87,7 @@ class Roster extends Component {
             </div> :
             <DashBoard player={this.state.currentPlayer} deletePlayer={this.actions.deletePlayer} />
           }
+          {this.state.error ? <div className="formError">{this.state.error}</div> : <div /> }
         </div>
       </div>
     );
