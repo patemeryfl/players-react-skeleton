@@ -8,5 +8,13 @@ const getRoster = {
   },
 };
 
-export default getRoster;
+const deletePlayer = {
+  method: 'DELETE',
+  url: `${constants.API_URL}/players`,
+  headers: {
+    Authorization: '',
+  },
+};
+
+export { getRoster, deletePlayer };
 

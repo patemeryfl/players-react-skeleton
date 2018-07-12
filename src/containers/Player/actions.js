@@ -1,7 +1,7 @@
 import constants from '../../assets/constants';
 
 const addNewPlayer = {
-  method: 'get',
+  method: 'post',
   url: `${constants.API_URL}/players`,
   data: '',
   headers: {

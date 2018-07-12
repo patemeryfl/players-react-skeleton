@@ -2,11 +2,13 @@
 
 .home {
   color: $white;
+  height: 50%;
+  backgound-color: $black;
 
   header {
     z-index: -1;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 60px 20px;
     background-color: $darkGray;
 
     h1 {
@@ -51,14 +53,73 @@
 
   section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     background-color: $lightGray;
     color: $black;
-    padding: 0 20px 0 20px;
+    padding: 0;
+
+    .first {
+      background: linear-gradient($darkGray 2%, $black);
+      height: 60px;
+    }
+
+    .second {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+      background-color: $black;
+      padding: 0px;
+    }
+
+    .card {
+      background-color: $lightGray;
+      height: 200px;
+      width: 32%;
+      border: 1ps solid $darkGray;
+      border-radius: 5px;
+      margin: 5px 10px 40px 10px;
+    }
+
+    h3 {
+      padding: 0 30px;
+      font-size: 50px;
+      color: $white;
+      margin-top: -10px;
+    }
+
+    h5 {
+      background-color: $primary;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      padding: 8px 8px 0 8px;
+      height: 30px;
+      margin: 0;
+      font-weight: 500;
+      font-size: 20px;
+      color: $white;
+    }
+
+    ul {
+      margin-top: 0px;
+    }
+
+    li {
+      font-size: 14px;
+    }
+
+    b {
+      color: $white;
+      font-size: 20px;
+    }
 
     p {
-      line-height: 0.7em;
+      font-size: 15px;
+      padding: 5px;
+      margin: 5px;
+      font-weight: bold;
+      padding-left: 10px;
     }
   }
 }

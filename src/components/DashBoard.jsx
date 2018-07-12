@@ -23,3 +23,14 @@ DashBoard.propTypes = {
   }),
   deletePlayer: PropTypes.func,
 };
+
+DashBoard.defaultProps = {
+  player: {
+    first_name: '',
+    last_name: '',
+    rating: '',
+    handedness: '',
+    id: '',
+  },
+};
+

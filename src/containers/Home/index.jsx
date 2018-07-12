@@ -9,21 +9,47 @@ class Home extends Component {
     return (
       <div className="home">
         <header>
-          <h1>Welcome to Office Quidditch</h1>
+          <h1>Welcome to Office Football</h1>
           <p>Register now to get started!</p>
           <Link to="/register" href="/register"><button>Register</button></Link>
         </header>
         <section>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-          </ul>
-          <ul>
-            <li>Item 4</li>
-            <li>Item 5</li>
-            <li>Item 6</li>
-          </ul>
+          <div className="first" />
+          <div className="second">
+            <div>
+              <h3>
+                The game you never thought you needed.
+              </h3>
+            </div>
+            <div>
+              <br />
+              <b>Office Football lets you play with your
+                coworkers all over the world in one highly
+                addictive game.
+              </b>
+            </div>
+            <br /><br /><br /><br /><br /><br />
+          </div>
+          <div className="second">
+            <div className="card">
+              <h5>Gameplay</h5>
+              <p>3 Game Modes</p>
+              <ul>
+                <li>Single Player</li>
+                <li>Team Play</li>
+                <li>Online Multiplayer</li>
+              </ul>
+            </div>
+            <div className="card">
+              <h5>Dashboard</h5>
+              <p>Interactive dashboard shows current roster and player stats.</p>
+            </div>
+            <div className="card">
+              <h5>Story Progression</h5>
+              <p>Follow Along With Your Friends</p>
+            </div>
+            <br /><br /><br /><br /><br />
+          </div>
         </section>
       </div>
     );
