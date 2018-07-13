@@ -32,15 +32,15 @@ class Player extends Component {
       this.setState({ [prop]: event.target.value });
     },
     validate: () => {
-      if (this.state.first_name === this.state.last_name) {
-        this.setState({ error: 'New players must have unique first & last names' });
-        return false;
-      }
       if (this.state.first_name === '' ||
           this.state.last_name === '' ||
           this.state.rating === '' ||
           this.state.handedness === '') {
         this.setState({ error: 'Please fill out all fields' });
+        return false;
+      }
+      if (this.state.first_name === this.state.last_name) {
+        this.setState({ error: 'New players must have unique first & last names' });
         return false;
       }
       return true;

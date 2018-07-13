@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class NavBar extends Component {
   static propTypes = {
-    isSignedIn: PropTypes.bool,
+    isLoggedIn: PropTypes.bool,
     actions: PropTypes.object,
     history: PropTypes.object,
   };
@@ -16,7 +16,10 @@ class NavBar extends Component {
   }
 
   actions = {
-    signOut: () => {
+    logIn: () => {
+      this.props.history.push('/login');
+    },
+    logOut: () => {
       localStorage.removeItem('token');
       this.props.actions.checkAuth();
       this.props.history.push('/');
@@ -30,9 +33,9 @@ class NavBar extends Component {
           <Link to="/roster" href="/roster">Roster</Link>
         </div>
         <div>
-          {!this.props.isSignedIn ?
-            <Link to="/login" href="/login"><button>Login</button></Link> :
-            <button onClick={this.actions.signOut}>Log Out</button>
+          {!this.props.isLoggedIn ?
+            <button onClick={this.actions.logIn}>Login</button> :
+            <button onClick={this.actions.logOut}>Log Out</button>
           }
         </div>
       </nav>

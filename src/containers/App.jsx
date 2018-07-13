@@ -20,15 +20,19 @@ import '../containers/Roster/roster.scss';
 
 class App extends Component {
   state = {
-    signedIn: false,
+    loggedIn: false,
+  }
+
+  componentWillMount() {
+    this.actions.checkAuth();
   }
 
   actions = {
     checkAuth: () => {
       if (isAuthenticated()) {
-        this.setState({ signedIn: true });
+        this.setState({ loggedIn: true });
       } else {
-        this.setState({ signedIn: false });
+        this.setState({ loggedIn: false });
       }
     },
   }
@@ -37,13 +41,13 @@ class App extends Component {
     return (
       <Router history={browserHistory}>
         <div>
-          <NavBar isSignedIn={this.state.signedIn} actions={this.actions} />
+          <NavBar isLoggedIn={this.state.loggedIn} actions={this.actions} />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/player/new" exact component={Player} />
             <Route path="/register" exact component={Register} />
             <Route path="/login" exact component={LogIn} />
             <PrivateRoute path="/roster/" exact component={Roster} />
+            <PrivateRoute path="/player/new" exact component={Player} />
             <Route component={NotFound} />
           </Switch>
         </div>

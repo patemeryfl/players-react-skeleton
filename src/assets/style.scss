@@ -88,6 +88,7 @@ nav {
 
     &:hover {
       background-color: $dark;
+      transition: 0.2s ease-in-out;
     }
   }
 }
@@ -118,6 +119,7 @@ form {
 
     &:hover {
       background-color: $dark;
+      transition: 0.2s ease-in-out;
     }
   }
 
@@ -147,7 +149,7 @@ input {
     border-color: $primary;
     transition: 0.2s ease-in-out;
 
-    .input-icon {
+    & + .input-icon {
       svg {
         fill: $primary;
       }

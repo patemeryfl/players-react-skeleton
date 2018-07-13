@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import icons from '../assets/svgs';
 
 const LogInForm = ({ state, actions }) => (
   <form id="loginForm">
     <div className="input-group input-group-icon">
-      <label htmlFor="email">Email
-        <input type="email" value={state.email} placeholder="Email" id="email" onChange={actions.handleChange('email')} />
-      </label>
+      <label htmlFor="email">Email</label>
+      <input type="email" value={state.email} placeholder="Email" id="email" onChange={actions.handleChange('email')} />
       <div className="input-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d={icons.email} />
@@ -16,9 +14,8 @@ const LogInForm = ({ state, actions }) => (
       </div>
     </div>
     <div className="input-group input-group-icon">
-      <label htmlFor="password">Password
-        <input type="password" value={state.password} placeholder="Password" id="password" onChange={actions.handleChange('password')} />
-      </label>
+      <label htmlFor="password">Password</label>
+      <input type="password" value={state.password} placeholder="Password" id="password" onChange={actions.handleChange('password')} />
       <div className="input-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d={icons.password} />
@@ -27,7 +24,7 @@ const LogInForm = ({ state, actions }) => (
     </div>
     {state.error ? <div className="formError">{state.error}</div> : <div /> }
     <footer>
-      <button><Link to="/register" href="/register">Register</Link></button>
+      <button id="register" onClick={actions.register}>Register</button>
       <button id="login" onClick={actions.logIn}>Log In</button>
     </footer>
   </form>

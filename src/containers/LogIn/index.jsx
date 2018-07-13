@@ -43,6 +43,10 @@ class LogIn extends Component {
         }
       }
     },
+    register: (e) => {
+      e.preventDefault();
+      this.props.history.push('/register');
+    },
   }
   render() {
     return (

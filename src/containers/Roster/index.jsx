@@ -5,11 +5,11 @@ import DashBoard from '../../components/DashBoard';
 import { getRoster, deletePlayer } from './actions';
 import icons from '../../assets/svgs';
 import Loader from '../../components/Loader';
+import constants from '../../assets/constants';
 
 class Roster extends Component {
   state = {
     error: '',
-    message: '',
     currentPlayer: '',
     players: [],
   }
@@ -36,7 +36,7 @@ class Roster extends Component {
     },
     deletePlayer: async (id) => {
       const token = localStorage.getItem('token');
-      deletePlayer.url = `${deletePlayer.url}/${id}`;
+      deletePlayer.url = `${constants.API_URL}/players/${id}`;
       deletePlayer.headers.Authorization = `Bearer ${token}`;
       const { data } = await axios(deletePlayer).catch(() =>
         this.setState({ error: 'An error occured when trying to delete this player.' }));
@@ -49,7 +49,6 @@ class Roster extends Component {
             ...this.state.players.slice(0, deletedPlayerIndex),
             ...this.state.players.slice(deletedPlayerIndex + 1),
           ],
-          message: 'Player deleted successfully',
         });
       }
     },
@@ -80,9 +79,9 @@ class Roster extends Component {
             </button>
           </Link>
         </div>
-        <div className="stats">
+        <div>
           { this.state.players.length === 0 ?
-            <div>
+            <div className="stats_start">
               <h3>You have no players on your team!</h3>
               <h4>Click Add New Player to start playing</h4>
             </div> :

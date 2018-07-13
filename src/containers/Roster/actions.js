@@ -10,7 +10,7 @@ const getRoster = {
 
 const deletePlayer = {
   method: 'DELETE',
-  url: `${constants.API_URL}/players`,
+  url: '',
   headers: {
     Authorization: '',
   },

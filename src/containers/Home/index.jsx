@@ -30,8 +30,8 @@ class Home extends Component {
             <div>
               <br />
               <b>Office Football lets you play with your
-                coworkers all over the world in one highly
-                addictive game.
+                coworkers <strong>all over the world</strong> in one
+                <strong> highly addictive</strong> game.
               </b>
             </div>
             <br /><br /><br /><br /><br /><br />
