@@ -74,14 +74,14 @@
       justify-content: space-between;
       align-items: baseline;
       background-color: $black;
-      padding: 0px;
+      padding: 0;
     }
 
     .card {
       background-color: $lightGray;
       height: 200px;
       width: 32%;
-      border: 1ps solid $darkGray;
+      border: 1px solid $darkGray;
       border-radius: 5px;
       margin: 5px 10px 40px 10px;
     }
@@ -106,7 +106,7 @@
     }
 
     ul {
-      margin-top: 0px;
+      margin-top: 0;
     }
 
     li {

@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
 class NavBar extends Component {
   static propTypes = {
     isSignedIn: PropTypes.bool,
+    actions: PropTypes.object,
     history: PropTypes.object,
   };
+
+  componentWillMount() {
+    this.props.history.listen(() => {
+      this.props.actions.checkAuth();
+    });
+  }
 
   actions = {
     signOut: () => {
       localStorage.removeItem('token');
+      this.props.actions.checkAuth();
       this.props.history.push('/');
     },
   }

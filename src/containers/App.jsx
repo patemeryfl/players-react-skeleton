@@ -25,7 +25,11 @@ class App extends Component {
 
   actions = {
     checkAuth: () => {
-      if (isAuthenticated()) this.setState({ signedIn: true });
+      if (isAuthenticated()) {
+        this.setState({ signedIn: true });
+      } else {
+        this.setState({ signedIn: false });
+      }
     },
   }
 

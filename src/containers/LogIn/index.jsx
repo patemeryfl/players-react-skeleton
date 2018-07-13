@@ -14,6 +14,7 @@ class LogIn extends Component {
     email: '',
     password: '',
   }
+
   actions = {
     validate: () => {
       if (this.state.email === '' || this.state.password === '') {
