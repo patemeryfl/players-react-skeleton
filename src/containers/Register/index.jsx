@@ -27,7 +27,7 @@ class Register extends Component {
         this.setState({ error: 'Please fill out all fields.' });
         return false;
       }
-      if (this.state.password !== this.state.confirmPassword) {
+      if (this.state.password !== this.state.confirm_password) {
         this.setState({ error: 'Passwords do not match.' });
         return false;
       }
